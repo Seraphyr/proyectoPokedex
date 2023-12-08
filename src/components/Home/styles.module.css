@@ -1,0 +1,46 @@
+.home {
+    display: flex;
+    width: 360px;
+    height: 640px;
+    padding: 4px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    header {
+        padding: 1 rem 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+
+        
+
+        span {
+            color: #212121;
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+        }
+    }
+
+}
+.headerDiv {
+            width: fit-content;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+.searchBar {
+    display: flex;
+    padding: 8px 16px 8px 12px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+}
+.pokeball {
+    width: 24px;
+    height: 24px;
+}
