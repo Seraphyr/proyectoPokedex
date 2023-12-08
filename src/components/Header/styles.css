@@ -1,0 +1,7 @@
+.searchBar {
+    display: flex;
+    padding: 8px 16px 8px 12px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+}
