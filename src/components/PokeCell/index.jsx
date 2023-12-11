@@ -15,7 +15,7 @@ const PokeCell = ({ url }) => {
     console.log(pokemon);
     return (pokemon && <button className={styles.cell}>
         <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}></img>
-        <h1 className={styles.pokeName}>{pokemon.name}</h1>
+        <h1 className={styles.pokeName}>{pokemon.name}</h1> # <span className= {styles.numero}>{pokemon.id} </span>
     </button>)
 }
 
