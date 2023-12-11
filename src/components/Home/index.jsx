@@ -9,7 +9,7 @@ export default function Home() {
                     <img className={styles.pokeball} src="../public/images/pokeball.png" alt="pokeball logo" />
                     <span>Pokédex</span>
                     <input className="searchBar" type="text" />
-                    <button><img src="../public/images/Arrow.svg" alt="" /></button>
+                    <button><img className={styles.arrow} src="../public/images/Arrow.svg" alt="" /></button>
                 </div>
             </header>
             <PokemonList/>
