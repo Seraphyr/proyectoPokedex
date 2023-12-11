@@ -16,7 +16,7 @@ const PokeList = ({ handleOnClick }) => {
     }, [])
      
     return (
-        <section className="poke-list">
+        <section className={styles.list}>
             {pokemon.map((p, id) => {
                 return (
                     <PokeCell key={id} url={p.url} pokeClass={id} handleOnClick={handleOnClick} />

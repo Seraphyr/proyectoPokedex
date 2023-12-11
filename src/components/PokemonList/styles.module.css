@@ -1,11 +1,9 @@
-.poke-list {
-    display: flex;
-    flex-wrap: wrap;
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     justify-content: space-around;
-    align-items: center;
-    width: 50%;
-    height: 80%;
-    padding: 10px;
+    align-items: center; 
     margin-right: 10px;
     background-color: #bff9ff;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
