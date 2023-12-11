@@ -7,7 +7,7 @@ const PokeList = ({ handleOnClick }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=9')
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
             const data = await response.json()
             setPokemon(data.results)
         }
