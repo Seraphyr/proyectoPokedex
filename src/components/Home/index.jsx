@@ -13,7 +13,12 @@ export default function Home() {
                 </div>
                 <input className="searchBar" type="text" placeholder='Buscar'/>
             </header>
-            <PokemonList/>
+
+            <div>
+                <input className="searchBar" type="text" />
+            </div>
+
+            <PokemonList />
         </div>
     )
 }
