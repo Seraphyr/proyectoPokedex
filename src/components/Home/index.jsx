@@ -6,16 +6,17 @@ export default function Home() {
         <div className={styles.home}>
             <header>
                 <div className={styles.headerDiv}>
+                    <div>
                     <img className={styles.pokeball} src="../public/images/pokeball.png" alt="pokeball logo" />
-                    <span>Pokédex</span>
-                    
+                    <span>Pokédex</span></div>
+
                     <button>#<img className={styles.arrow} src="../public/images/Arrow.svg" alt="" /></button>
                 </div>
-                <input className="searchBar" type="text" placeholder='Buscar'/>
+
             </header>
 
             <div>
-                <input className="searchBar" type="text" />
+                <input className="searchBar" type="text" placeholder='Buscar' />
             </div>
 
             <PokemonList />

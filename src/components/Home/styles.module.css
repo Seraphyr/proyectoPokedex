@@ -10,12 +10,8 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: fit-content;
     cursor: pointer;
     gap: 1rem;
-
 
 
         span {
@@ -36,12 +32,16 @@
 
 
 .headerDiv {
-            width: fit-content;
+            width: 100%;
             cursor: pointer;
             display: flex;
+            flex-wrap: nowrap;
             flex-direction: row;
             gap: 1rem;
-        }
+            justify-content: space-between;
+            align-items: center;
+}
+
 input {
     display: flex;
     padding: 5px 10px 5px 10px;
@@ -51,10 +51,19 @@ input {
     flex-direction: row;
     gap: 8px;
     flex: 1 0 0;
-    width: 150px;
+    width: 100%;
+  
 }
 
 .pokeball {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    margin-right: 16px;
+    top: 3px;
+}
+
+.arrow {
     width: 24px;
     height: 24px;
 }
