@@ -1,20 +1,20 @@
 .home {
     display: flex;
+    flex-direction: column;
     width: 360px;
     height: 640px;
     padding: 4px;
     flex-direction: column;
-    align-items: flex-start;
-
+   
     header {
         padding: 1 rem 0;
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin: 0 auto;
+        justify-content: space-between;
+       margin: 0 auto;
 
-        
+
 
         span {
             color: #212121;
@@ -25,14 +25,17 @@
     }
 
 }
+
 .headerDiv {
-            width: fit-content;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
+    display: flex;
+    flex-direction: row;
+  
+    cursor: pointer;
+   
+    justify-content: space space-between;
+ 
+}
+
 .searchBar {
     display: flex;
     padding: 8px 16px 8px 12px;
@@ -40,12 +43,8 @@
     gap: 8px;
     flex: 1 0 0;
 }
-.pokeball {
-    width: 24px;
-    height: 24px;
-}
 
-.arrow {
+.pokeball {
     width: 24px;
     height: 24px;
 }
