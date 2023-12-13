@@ -1,6 +1,7 @@
 import styles from './styles.module.css'
 import PokemonList from '../PokemonList'
 
+
 export default function Home() {
     return (
         <div className={styles.home}>

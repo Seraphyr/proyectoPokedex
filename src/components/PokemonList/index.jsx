@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import PokeCell from '../PokeCell'
 import styles from './styles.module.css'
 
-const PokeList = ({ handleOnClick }) => {
+const PokeList = () => {
     const [pokemon, setPokemon] = useState([])
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const PokeList = ({ handleOnClick }) => {
         <section className={styles.list}>
             {pokemon.map((p, id) => {
                 return (
-                    <PokeCell key={id} url={p.url} pokeClass={id} handleOnClick={handleOnClick} />
+                    <PokeCell key={id} url={p.url} pokeClass={id} />
                 )
             })}
         </section>
