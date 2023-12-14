@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function Detalle(props) {
     const [pokemon, setPokemon] = useState(null)
@@ -21,14 +21,27 @@ export default function Detalle(props) {
     return (
         pokemon && <>
             <div className={styles.card}>
-                <h1>{pokemon.name}</h1>
-                
-                <label >Weight: {pokemon.weight}g</label>
-                <label >Height: {pokemon.height}m</label>
-                <label >Moves: {pokemon.abilities[0].ability.name}</label>
-                {pokemon.id==1 ? '' : <button onClick={() => navigate ( `/detalle/${pokemon.id-1}`)}>Anterior</button>}
-                <button onClick={() => navigate ( `/detalle/${pokemon.id+1}`)}>Siguiente</button>
-                
+
+                <div className={styles.cardImg}>
+                    <img src="../public/images/pokeball.png" alt="" />
+                </div>
+                <div className={styles.header}>
+                    <Link to="/"><img src="../images/arrow-left.svg" alt="arrow left" /></Link>
+                    <h1>{pokemon.name}</h1>
+                    # <span className={styles.numero}>{pokemon.id} </span>
+                </div>
+                <div className={styles.pokemonImg} >
+                    <img className={styles.img} src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}></img>
+                    {pokemon.id == 1 ? '' : <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id - 1}`)}><img src="../public/images/chevron_left.svg" alt="" /></button>}
+                    <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id + 1}`)}><img src="../public/images/chevron_right.svg" alt="" /></button>
+                </div>
+
+                <div className={styles.cardDetails}>
+                    <label >Weight: {pokemon.weight}g</label>
+                    <label >Height: {pokemon.height}m</label>
+                    <label >Moves: {pokemon.abilities[0].ability.name}</label>
+
+                </div>
             </div>
         </>
     )
