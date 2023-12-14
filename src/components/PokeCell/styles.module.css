@@ -12,6 +12,7 @@
 .pokeName {
     text-transform: capitalize;
     font-size: 10px;
+    font-weight: 400;
 }
 
 .img {

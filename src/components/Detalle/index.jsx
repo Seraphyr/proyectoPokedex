@@ -37,10 +37,17 @@ export default function Detalle(props) {
                 </div>
 
                 <div className={styles.cardDetails}>
+                    <div className={styles.types}>
+                        <ul>
+                            <li>{pokemon.types[0].type.name}</li>
+                            {pokemon.types[1] ? <li>{pokemon.types[1].type.name}</li>:'' }
+                        </ul>
+                    </div>
+
                     <label >Weight: {pokemon.weight}g</label>
                     <label >Height: {pokemon.height}m</label>
-                    <label >Moves: {pokemon.abilities[0].ability.name}</label>
-
+                    <label >Moves: {pokemon.abilities[0].ability.name} </label>
+                    {pokemon.abilities[1] ? <label>{pokemon.abilities[1].ability.name}</label> : ''}
                 </div>
             </div>
         </>
