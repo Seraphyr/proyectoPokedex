@@ -62,6 +62,7 @@
 .cardDetails {
     display: flex;
     height: 412px;
+    font-size: 12px;
     padding: 56px 20px 20px 20px;
     flex-direction: column;
     align-items: flex-start;
@@ -73,12 +74,85 @@
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
 }
 
-/* crear las 18 clases de colores de types segun los dados por figma */
+
+/* POKEMON TYPE COLORS */
 
 .fire {
     background-color: #F57D31;
 }
 
 .water {
-    background-color: #4592C4;
+    background-color: #6493EB;
+}
+
+.grass {
+    background-color: #74CB48;
+}
+
+.electric {
+    background-color: #EED535;
+}
+
+.normal {
+    background-color: #AAA67F;
+}
+
+.ghost {
+    background-color: #70559B;
+}
+
+.bug {
+    background-color: #A7B723;
+}
+
+.ice {
+    background-color: #9AD6DF;
+}
+
+.fighting {
+    background-color: #C12239;
+}
+
+.poison {
+    background-color: #A43E9E;
+}
+
+.ground {
+    background-color: #DEC16B;
+}
+
+.flying {
+    background-color: #A891EC;
+}
+
+.psychic {
+    background-color: #FB5584;
+}
+
+.rock {
+    background-color: #B69E31;
+}
+
+.dragon {
+    background-color: #7037FF;
+}
+
+.dark {
+    background-color: #75574C;
+}
+
+.fairy {
+    background-color: #E69EAC;
+}
+
+.steel {
+    background-color: #B7B9D0;
+}
+
+.electric {
+    background-color: #F9CF30;
+}
+
+.flying {
+    background-color: #3dc7ef;
 }

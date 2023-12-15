@@ -2,10 +2,11 @@ import styles from './styles.module.css'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Text from '../Text'
 
 export default function Detalle(props) {
     const [pokemon, setPokemon] = useState(null)
-    const [types, setTypes] = useState(styles.water)
+    const [types, setTypes] = useState(styles.type)
     const navigate = useNavigate()
     const { id } = useParams();
 
@@ -21,10 +22,37 @@ export default function Detalle(props) {
     
 /* crear un useEffect que lea el  primer type y asigne la clase al state types */
 
+    useEffect(() => {
+        if (pokemon) {
+            setTypes(pokemon.types[0].type.name)
+        }
+    }, [pokemon])       
+    
+    const typeStyles = {
+        normal: styles.normal,
+        fire: styles.fire,
+        water: styles.water,
+        electric: styles.electric,
+        grass: styles.grass,
+        ice: styles.ice,
+        fighting: styles.fighting,
+        poison: styles.poison,
+        ground: styles.ground,
+        flying: styles.flying,
+        psychic: styles.psychic,
+        bug: styles.bug,
+        rock: styles.rock,
+        ghost: styles.ghost,
+        dragon: styles.dragon,
+        dark: styles.dark,
+        steel: styles.steel,
+        fairy: styles.fairy
+    }
 
+    
     return (
         pokemon && <>
-            <div className={`${styles.card} ${types}`}>
+            <div className={typeStyles[types]}>
 
                 <div className={styles.cardImg}>
                     <img src="../public/images/pokeball.png" alt="" />
@@ -39,7 +67,7 @@ export default function Detalle(props) {
                     {pokemon.id == 1 ? '' : <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id - 1}`)}><img src="../public/images/chevron_left.svg" alt="" /></button>}
                     <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id + 1}`)}><img src="../public/images/chevron_right.svg" alt="" /></button>
                 </div>
-
+       
                 <div className={styles.cardDetails}>
                     <div className={styles.types}>
                         {/* <ul>
@@ -47,15 +75,18 @@ export default function Detalle(props) {
                             {pokemon.types[1] ? <li>{pokemon.types[1].type.name}</li>:'' }
                         </ul> */}
                         <ul>
-                            {pokemon.types.map(t => <li>{t.type.name}</li>)} 
+                            {pokemon.types.map((t, i) => <li key={i}>{t.type.name}</li>)} 
                         </ul>
                     </div>
 
                     <label >Weight: {pokemon.weight}g</label>
                     <label >Height: {pokemon.height}m</label>
-                    <label >Abilities: {pokemon.abilities.map(a => <li>{a.ability.name}</li>)}</label>
+                    <label >Abilities: {pokemon.abilities.map((a, i) => <li key={i}>{a.ability.name}</li>)}</label>
+                    <span> <Text id={id}/></span>
                 </div>
+                
             </div>
+            
         </>
     )
 }
