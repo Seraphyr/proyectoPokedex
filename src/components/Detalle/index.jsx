@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom'
 
 export default function Detalle(props) {
     const [pokemon, setPokemon] = useState(null)
+    const [types, setTypes] = useState(styles.water)
     const navigate = useNavigate()
     const { id } = useParams();
 
@@ -17,10 +18,13 @@ export default function Detalle(props) {
         fetchData()
     }, [id])
 
+    
+/* crear un useEffect que lea el  primer type y asigne la clase al state types */
+
 
     return (
         pokemon && <>
-            <div className={styles.card}>
+            <div className={`${styles.card} ${types}`}>
 
                 <div className={styles.cardImg}>
                     <img src="../public/images/pokeball.png" alt="" />
@@ -38,16 +42,18 @@ export default function Detalle(props) {
 
                 <div className={styles.cardDetails}>
                     <div className={styles.types}>
-                        <ul>
+                        {/* <ul>
                             <li>{pokemon.types[0].type.name}</li>
                             {pokemon.types[1] ? <li>{pokemon.types[1].type.name}</li>:'' }
+                        </ul> */}
+                        <ul>
+                            {pokemon.types.map(t => <li>{t.type.name}</li>)} 
                         </ul>
                     </div>
 
                     <label >Weight: {pokemon.weight}g</label>
                     <label >Height: {pokemon.height}m</label>
-                    <label >Moves: {pokemon.abilities[0].ability.name} </label>
-                    {pokemon.abilities[1] ? <label>{pokemon.abilities[1].ability.name}</label> : ''}
+                    <label >Abilities: {pokemon.abilities.map(a => <li>{a.ability.name}</li>)}</label>
                 </div>
             </div>
         </>
