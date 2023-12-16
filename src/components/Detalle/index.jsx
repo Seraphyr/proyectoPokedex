@@ -19,15 +19,15 @@ export default function Detalle(props) {
         fetchData()
     }, [id])
 
-    
-/* crear un useEffect que lea el  primer type y asigne la clase al state types */
+
+    /* crear un useEffect que lea el  primer type y asigne la clase al state types */
 
     useEffect(() => {
         if (pokemon) {
             setTypes(pokemon.types[0].type.name)
         }
-    }, [pokemon])       
-    
+    }, [pokemon])
+
     const typeStyles = {
         normal: styles.normal,
         fire: styles.fire,
@@ -49,7 +49,7 @@ export default function Detalle(props) {
         fairy: styles.fairy
     }
 
-    
+
     return (
         pokemon && <>
             <div className={typeStyles[types]}>
@@ -67,26 +67,28 @@ export default function Detalle(props) {
                     {pokemon.id == 1 ? '' : <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id - 1}`)}><img src="../public/images/chevron_left.svg" alt="" /></button>}
                     <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id + 1}`)}><img src="../public/images/chevron_right.svg" alt="" /></button>
                 </div>
-       
-                <div className={styles.cardDetails}>
-                    <div className={styles.types}>
-                        {/* <ul>
-                            <li>{pokemon.types[0].type.name}</li>
-                            {pokemon.types[1] ? <li>{pokemon.types[1].type.name}</li>:'' }
-                        </ul> */}
-                        <ul>
-                            {pokemon.types.map((t, i) => <li key={i}>{t.type.name}</li>)} 
-                        </ul>
-                    </div>
 
-                    <label >Weight: {pokemon.weight}g</label>
-                    <label >Height: {pokemon.height}m</label>
-                    <label >Abilities: {pokemon.abilities.map((a, i) => <li key={i}>{a.ability.name}</li>)}</label>
-                    <span> <Text id={id}/></span>
+                <div className={styles.cardDetails}>
+                    <div className={(typeStyles[types])}>
+
+                        {pokemon.types.map((t, i) => <span key={i}>{t.type.name}</span>)}
+
+                    </div>
+                    <h1 className={typeStyles[types]}>About</h1>
+                    <div className={styles.info}>
+                        
+                        <label ><img src="../public/images/weight.svg" alt="weight" /> {pokemon.weight}g <br />Weight: </label>
+                        <label ><img src="../public/images/height.svg" alt="height" /> {pokemon.height}m <br />Height: </label>
+                        <label className={styles.abilities}>{pokemon.abilities.map((a, i) => <li key={i}>{a.ability.name}</li>)} Abilities: </label>
+
+
+                    </div>
+                    <span> <Text id={id} /></span>
+                    <span >{pokemon.stats.map((s, i) => <li key={i} >{s.stat.name}: {s.base_stat} <progress value={s.base_stat} max={252} /></li>)}</span>
                 </div>
-                
+
             </div>
-            
+
         </>
     )
 }

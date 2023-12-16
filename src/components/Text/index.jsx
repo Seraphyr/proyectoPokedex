@@ -8,8 +8,7 @@ export default function Text({ id }) {
     const fetchData = async () => {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
       const data = await response.json();
-      console.log(data);
-      const flavorText = data.flavor_text_entries[0].flavor_text;
+      const flavorText = data.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text.replace(/\f/g, ' ');
       setFlavorText(flavorText);
     };
 
