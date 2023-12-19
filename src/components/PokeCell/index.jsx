@@ -13,7 +13,8 @@ const PokeCell = ({ url }) => {
         }
 
         fetchData()
-    }, []);
+    }, [url]);
+    
     console.log(url);
     return (pokemon && <button key = {pokemon.id} className={styles.cell} onClick={() => navigate(`/detalle/${pokemon.id}`)}>
         <img className={styles.img} src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}></img>
