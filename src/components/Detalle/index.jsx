@@ -74,7 +74,7 @@ export default function Detalle(props) {
                         {pokemon.types.map((t, i) => <span key={i}>{t.type.name}</span>)}
 
                     </div>
-                    <h1 className={typeStyles[types]}>About</h1>
+                    <h1 /* className={typeStyles[types]} */>About</h1>
                     <div className={styles.info}>
                         
                         <label ><img src="../public/images/weight.svg" alt="weight" /> {pokemon.weight}g <br />Weight: </label>

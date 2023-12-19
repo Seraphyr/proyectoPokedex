@@ -11,13 +11,13 @@ const PokeCell = ({ url }) => {
             const data = await response.json()
             setPokemon(data)
         }
-    
+
         fetchData()
-    }, [])
-    console.log(pokemon);
-    return (pokemon && <button className={styles.cell} onClick={() => navigate ( `/detalle/${pokemon.id}`)}>
-         <img className={styles.img} src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}></img>
-        <h1 className={styles.pokeName}>{pokemon.name}</h1> # <span className= {styles.numero}>{pokemon.id} </span>
+    }, []);
+    console.log(url);
+    return (pokemon && <button key = {pokemon.id} className={styles.cell} onClick={() => navigate(`/detalle/${pokemon.id}`)}>
+        <img className={styles.img} src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}></img>
+        <h1 className={styles.pokeName}>{pokemon.name}</h1> # <span className={styles.numero}>{pokemon.id} </span>
     </button>)
 }
 

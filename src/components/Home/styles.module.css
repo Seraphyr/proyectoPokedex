@@ -5,6 +5,7 @@
     height: 640px;
     padding: 4px;
     flex-direction: column;
+    background-color: #DC0A2D;
    
     header {
     width: 100%;
@@ -12,6 +13,7 @@
     justify-content: space-between;
     cursor: pointer;
     gap: 1rem;
+    
 
 
         span {
@@ -19,12 +21,16 @@
             font-size: 24px;
             line-height: 32px;
             font-weight: 700;
+            color: #fff;
         }
 
         button {
            border: none;
-           background-color: transparent;
-            
+           color: #fff;
+           padding: 5px 10px 5px 10px;
+           border-radius: 20px;
+           cursor: pointer;
+           color: #DC0A2D;
         }
     }
 
@@ -46,13 +52,13 @@ input {
     display: flex;
     padding: 5px 10px 5px 10px;
     margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 16px;
     border: 1px solid #959292;
     flex-direction: row;
     gap: 8px;
     flex: 1 0 0;
     width: 100%;
-  
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
 }
 
 .pokeball {
@@ -61,6 +67,7 @@ input {
     position: relative;
     margin-right: 16px;
     top: 3px;
+    filter: invert(100%);
 }
 
 .arrow {
