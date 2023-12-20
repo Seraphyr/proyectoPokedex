@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import PokeCell from '../PokeCell'
 import styles from './styles.module.css'
 
-const PokemonList = ({ search }) => {
+const PokemonList = ({ search, order }) => {
     const [pokemon, setPokemon] = useState([]);
     const [filteredPokemon, setFilteredPokemon] = useState([]);
 
@@ -19,15 +19,29 @@ const PokemonList = ({ search }) => {
      
     useEffect(() => {
      setFilteredPokemon (pokemon.filter((p) =>{
-      console.log(p.name.toLowerCase(), (search.toLowerCase()), p.name.toLowerCase().includes(search.toLowerCase()));
       return p.name.toLowerCase().includes(search.toLowerCase())
     } ));
     }, [search])
 
+
+    const filteredAndSortedPokemon = useMemo(() => {
+        const filteredPokemon = pokemon.filter((p) => {
+            return true;
+        });
+        if (order === 'asc') {
+          return filteredPokemon.sort((a, b) => (a.name > b.name ? 1 : -1));
+        }
+        if (order === 'desc') {
+          return filteredPokemon.sort((a, b) => (a.name < b.name ? 1 : -1));
+        }
+        return filteredPokemon;
+     }, [pokemon, search, order]);
+
+
+      
     return (
         <section className={styles.list}>
-            {filteredPokemon.map((p) => {
-                console.log(p);
+            {filteredAndSortedPokemon.map((p) => {
                 return (
                     <PokeCell key={p.id} url={p.url} />
                 )

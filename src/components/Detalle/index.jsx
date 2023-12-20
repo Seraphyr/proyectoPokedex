@@ -20,7 +20,6 @@ export default function Detalle(props) {
     }, [id])
 
 
-    /* crear un useEffect que lea el  primer type y asigne la clase al state types */
 
     useEffect(() => {
         if (pokemon) {
