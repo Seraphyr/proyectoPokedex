@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 const PokemonList = ({ search, order }) => {
     const [pokemon, setPokemon] = useState([]);
     const [filteredPokemon, setFilteredPokemon] = useState([]);
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,8 +33,9 @@ const PokemonList = ({ search, order }) => {
           return filteredPokemon.sort((a, b) => (a.name > b.name ? 1 : -1));
         }
         if (order === 'desc') {
-          return filteredPokemon.sort((a, b) => (a.name < b.name ? 1 : -1));
+          return filteredPokemon.sort((a, b) => (order === 'asc' ? a.id - b.id : b.id - a.id));
         }
+        
         return filteredPokemon;
      }, [pokemon, search, order]);
 
