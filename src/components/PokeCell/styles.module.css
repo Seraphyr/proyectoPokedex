@@ -19,3 +19,83 @@
     width: 80px;
     height: 80px;
 }
+
+.fireText {
+    color: #F57D31;
+}
+
+.waterText {
+    color: #6493EB;
+}
+
+.grassText {
+    color: #74CB48;
+}
+
+.electricText {
+    color: #EED535;
+}
+
+.normalText {
+    color: #AAA67F;
+}
+
+.ghostText {
+    color: #70559B;
+}
+
+.bugText {
+    color: #A7B723;
+}
+
+.iceText {
+    color: #9AD6DF;
+}
+
+.fightingText {
+    color: #C12239;
+}
+
+.poisonText {
+    color: #A43E9E;
+}
+
+.groundText {
+    color: #DEC16B;
+}
+
+.flyingText {
+    color: #A891EC;
+}
+
+.psychicText {
+    color: #FB5584;
+}
+
+.rockText {
+    color: #B69E31;
+}
+
+.dragonText {
+    color: #7037FF;
+}
+
+.darkText {
+    color: #75574C;
+}
+
+.fairyText {
+    color: #E69EAC;
+}
+
+.steelText {
+    color: #B7B9D0;
+}
+
+.electricText {
+    color: #F9CF30;
+}
+
+.flyingText {
+    color: #3dc7ef;
+}

@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import PokeCell from '../PokeCell'
 import styles from './styles.module.css'
 
-const PokemonList = ({ search, order }) => {
+const PokemonList = ({ search, filter /* , order  */}) => {
     const [pokemon, setPokemon] = useState([]);
     const [filteredPokemon, setFilteredPokemon] = useState([]);
     
@@ -11,12 +11,18 @@ const PokemonList = ({ search, order }) => {
         const fetchData = async () => {
             const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
             const data = await response.json()
-            setPokemon(data.results);
+            setPokemon(data.results.map((p) => {
+                return {
+                    id: parseInt(p.url.split('/')[6]), //p.url.split('/')[6],
+                    name: p.name,
+                    url: p.url
+                }
+            }));
             setFilteredPokemon(data.results);
         }
     
         fetchData()
-    }, [])
+    }, []);
      
     useEffect(() => {
      setFilteredPokemon (pokemon.filter((p) =>{
@@ -24,8 +30,18 @@ const PokemonList = ({ search, order }) => {
     } ));
     }, [search])
 
+    useEffect(() => {
+        if (filter === 'A') {
+          setFilteredPokemon(pokemon.sort((a, b) => (a.name > b.name ? 1 : -1)));
+          console.log('alfabetico');
+        }
+        if (filter === '#') {
+          setFilteredPokemon(pokemon.sort((a, b) => (a.id > b.id ? 1 : -1)));
+          console.log('numerico');
+        }
+    }, [filter]);
 
-    const filteredAndSortedPokemon = useMemo(() => {
+    /* const filteredAndSortedPokemon = useMemo(() => {
         const filteredPokemon = pokemon.filter((p) => {
             return true;
         });
@@ -37,13 +53,13 @@ const PokemonList = ({ search, order }) => {
         }
         
         return filteredPokemon;
-     }, [pokemon, search, order]);
+     }, [pokemon, search, order]); */
 
 
       
     return (
         <section className={styles.list}>
-            {filteredAndSortedPokemon.map((p) => {
+            {filteredPokemon.map((p) => {
                 return (
                     <PokeCell key={p.id} url={p.url} />
                 )

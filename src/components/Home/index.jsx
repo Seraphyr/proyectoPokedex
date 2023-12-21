@@ -4,24 +4,16 @@ import { useState } from 'react'
 
 
 export default function Home() {
-    const [filter, setFilter] = useState('A');
-    const [idFilter, setidFilter] = useState(false);
-    const [order, setOrder] = useState('asc');
+    const [filter, setFilter] = useState('#');
+    /* const [idFilter, setidFilter] = useState(false); */
+    /* const [order, setOrder] = useState('asc'); */
     const [search, setSearch] = useState('');
 
     const changeFilter = () => {
-        if (filter === 'A' && order === 'asc') {
-          setFilter('#');
-          setOrder('asc');
-        } else if (filter === '#' && order === 'asc') {
-          setFilter('A');
-          setOrder('desc');
-        } else if (filter === 'A' && order === 'desc') {
-          setFilter('#');
-          setOrder('desc');
-        } else if (filter === '#' && order === 'desc') {
-          setFilter('A');
-          setOrder('asc');
+        if (filter === '#') {
+            setFilter('A');
+        } else if (filter === 'A') {
+            setFilter('#');
         }
       };
 
@@ -45,7 +37,7 @@ export default function Home() {
                     onChange={(e) => setSearch(e.target.value)} />
             </div>
 
-            <PokemonList search={search} filter={filter} order={order}/>
+            <PokemonList search={search} filter={filter} /* order={order} *//>
         </div>
     )
 }
