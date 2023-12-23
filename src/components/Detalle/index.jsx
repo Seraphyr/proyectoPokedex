@@ -2,6 +2,7 @@ import styles from './styles.module.css'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { useSwipeable } from 'react-swipeable'
 import Text from '../Text'
 
 export default function Detalle(props) {
@@ -69,8 +70,26 @@ export default function Detalle(props) {
         fairy: styles.fairyText
     }
 
+
+    const config = {
+        delta : 10,
+        preventScrollOnSwipe : false,
+        trackTouch : true,
+        trackMouse : true,
+        rotationAngle : 0,
+        swipeDuration: Infinity,
+        touchEventOptions : { passive: true},
+    }
+
+    const handlers = useSwipeable ({
+        onSwipedLeft: () => navigate(`/detalle/${parseInt(id) + 1}`),
+        onSwipedRight: () => navigate(`/detalle/${parseInt(id) - 1}`),
+        ...config
+        
+    });
+
     return (
-        pokemon && <>
+        pokemon && <div {...handlers}>
             <div className={typeStyles[types]}>
 
                 <div className={styles.cardImg}>
@@ -111,7 +130,7 @@ export default function Detalle(props) {
 
             </div>
 
-        </>
+        </div>
     )
 }
 
