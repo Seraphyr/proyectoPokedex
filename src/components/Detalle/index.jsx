@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSwipeable } from 'react-swipeable'
 import Text from '../Text'
+import ImgPokeball from '/public/images/pokeball.png'
+import ImgHeight from '/public/images/height.svg'
+import ImgWeight from '/public/images/weight.svg'
+import ImgArrowBack from '/public/images/arrow-left.svg'
+import ImgArrowLeft from '/public/images/chevron_left.svg'
+import ImgArrowRight from '/public/images/chevron_right.svg'
 
 export default function Detalle(props) {
     const [pokemon, setPokemon] = useState(null)
@@ -93,17 +99,17 @@ export default function Detalle(props) {
             <div className={typeStyles[types]}>
 
                 <div className={styles.cardImg}>
-                    <img className={styles.invert} src="../public/images/pokeball.png" alt="" />
+                    <img className={styles.invert} src={ImgPokeball} alt="" />
                 </div>
                 <div className={styles.header}>
-                    <Link to="/"><img className={styles.invert} src="../images/arrow-left.svg" alt="arrow left" /></Link>
+                    <Link to="/"><img className={styles.invert} src={ImgArrowBack} alt="arrow left" /></Link>
                     <h1>{pokemon.name}</h1>
                     # <span className={styles.numero}>{pokemon.id} </span>
                 </div>
                 <div className={styles.pokemonImg} >
                     <img className={styles.img} src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}></img>
-                    {pokemon.id == 1 ? '' : <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id - 1}`)}><img src="../public/images/chevron_left.svg" alt="" /></button>}
-                    <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id + 1}`)}><img src="../public/images/chevron_right.svg" alt="" /></button>
+                    {pokemon.id == 1 ? '' : <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id - 1}`)}><img src={ImgArrowLeft} alt="" /></button>}
+                    <button className={styles.button} onClick={() => navigate(`/detalle/${pokemon.id + 1}`)}><img src={ImgArrowRight} alt="" /></button>
                 </div>
 
                 <div className={styles.cardDetails}>
@@ -115,8 +121,8 @@ export default function Detalle(props) {
                     <h1 className={typeStylesText[types]} >About</h1>
                     <div className={styles.info}>
 
-                        <label ><img src="../public/images/weight.svg" alt="weight" /> {pokemon.weight}g <br />Weight: </label>
-                        <label ><img src="../public/images/height.svg" alt="height" /> {pokemon.height}m <br />Height: </label>
+                        <label ><img src={ImgWeight} alt="weight" /> {pokemon.weight}g <br />Weight: </label>
+                        <label ><img src={ImgHeight} alt="height" /> {pokemon.height}m <br />Height: </label>
                         <label className={styles.abilities}>{pokemon.abilities.map((a, i) => <li key={i}>{a.ability.name}</li>)} Abilities: </label>
 
 
