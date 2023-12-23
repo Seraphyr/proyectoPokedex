@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 import PokemonList from '../PokemonList'
 import { useState } from 'react'
-
+import ImgPokeball from '/public/images/pokeball.png'
 
 export default function Home() {
     const [filter, setFilter] = useState('#');
@@ -23,7 +23,7 @@ export default function Home() {
             <header>
                 <div className={styles.headerDiv}>
                     <div>
-                        <img className={styles.pokeball} src="../public/images/pokeball.png" alt="pokeball logo" />
+                        <img className={styles.pokeball} src={ImgPokeball} alt="pokeball logo" />
                         <span>Pokédex</span>
                     </div>
 
