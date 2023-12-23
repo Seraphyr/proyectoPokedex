@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 import PokemonList from '../PokemonList'
 import { useState } from 'react'
-import ImgPokeball from '/public/images/pokeball.png'
+import ImgPokeball from '/public/images/Pokeball.png'
 
 export default function Home() {
     const [filter, setFilter] = useState('#');
